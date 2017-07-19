@@ -1,0 +1,39 @@
+@charset "UTF-8";
+$white: #fff;
+$base-color: #5b7e99;
+
+button{
+  cursor: pointer;
+  font-size: 21px;
+  color: $white;
+  line-height: 1;
+  padding: 15px 20px;
+  background-color: $base-color;
+  border: 0;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  span{
+    position: relative; /* z-indexを効かせるためだけのrelative */
+    z-index: 2; /* 「キラン！」のテキストのみを上に、ボタン本体は一番下に */
+  }
+  &:after{
+    content: "";
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    top: -25px;
+    left: -75px;
+    background-color: $white;
+    opacity: .4;
+    transform: rotate(30deg);
+    z-index: 1;
+    transition: none;
+  }
+  &:hover:after{
+    left: calc(100% + 25px); /* position: leftを計算値で動かす */
+    transition: all .2s ease-in-out;
+  }
+
+
+}
